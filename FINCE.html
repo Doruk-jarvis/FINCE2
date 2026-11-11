@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>İki Uzak Akraba: Fince ve Türkçe</title>
+<style>
+:root{--bg:#f3f5fb;--fg:#1b2238;--mut:#5b6482;--card:#ffffffd9;--bd:#d3d9ec;--a:#1f6feb;--b:#0b8f6e;--hl:#d9480f;--g1:#4be0b455;--g2:#6aa6ff55;--g3:#c77dff44}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#080c1a;--fg:#e8ecf8;--mut:#9aa4c4;--card:#121a33cc;--bd:#27315a;--a:#6aa6ff;--b:#4be0b4;--hl:#ffb454}}
+:root[data-theme="dark"]{--bg:#080c1a;--fg:#e8ecf8;--mut:#9aa4c4;--card:#121a33cc;--bd:#27315a;--a:#6aa6ff;--b:#4be0b4;--hl:#ffb454}
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--fg);font:17px/1.75 Georgia,"Times New Roman",serif;overflow-x:hidden}
+.aur{position:fixed;inset:0;z-index:-1;overflow:hidden}
+.aur i{position:absolute;width:60vmax;height:60vmax;border-radius:50%;filter:blur(90px);animation:fl 22s ease-in-out infinite alternate}
+.aur i:nth-child(1){background:var(--g1);left:-15vmax;top:-20vmax}
+.aur i:nth-child(2){background:var(--g2);right:-20vmax;top:10vmax;animation-delay:-7s}
+.aur i:nth-child(3){background:var(--g3);left:20vmax;bottom:-30vmax;animation-delay:-13s}
+@keyframes fl{to{transform:translate(8vmax,6vmax) scale(1.2)}}
+#bar{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--a),var(--b));z-index:9}
+#tg{position:fixed;right:14px;top:calc(12px + env(safe-area-inset-top,0px));z-index:9;padding:7px 11px}
+.w{max-width:880px;margin:0 auto;padding:0 20px 80px}
+header{text-align:center;padding:80px 0 30px}
+header small{letter-spacing:.3em;text-transform:uppercase;color:var(--b);font:600 12px system-ui,sans-serif}
+h1{font-size:clamp(36px,8vw,70px);line-height:1.05;margin:16px 0;cursor:pointer;user-select:none}
+h1 span{background:linear-gradient(90deg,var(--a),var(--b),var(--hl));background-size:200%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:sh 6s linear infinite}
+@keyframes sh{to{background-position:200% 0}}
+.sub{color:var(--mut);max-width:560px;margin:0 auto;min-height:3.4em}
+.cur::after{content:"|";animation:bl 1s steps(1) infinite}
+@keyframes bl{50%{opacity:0}}
+h2{font-size:clamp(25px,5vw,32px);margin:70px 0 6px}
+h2 small{display:block;font:600 12px system-ui,sans-serif;letter-spacing:.25em;color:var(--hl);text-transform:uppercase;margin-bottom:4px}
+p{margin:12px 0}
+.rv{opacity:0;transform:translateY(24px);transition:.8s}
+.rv.in{opacity:1;transform:none}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:18px;padding:22px;backdrop-filter:blur(8px)}
+.row{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
+button,input{font:600 15px system-ui,sans-serif;border:1px solid var(--bd);background:transparent;color:var(--fg);padding:9px 15px;border-radius:999px;transition:.2s}
+button{cursor:pointer}
+button:hover{border-color:var(--a);transform:translateY(-2px)}
+button.on{background:var(--a);color:#fff;border-color:var(--a)}
+.ex button{border-color:var(--b)}
+.ex button.on{background:var(--b);color:#04251c}
+input{border-radius:12px;width:100%;max-width:260px;font-weight:500}
+.stage{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:12px}
+@media(max-width:600px){.stage{grid-template-columns:1fr}}
+.box{border:1px dashed var(--bd);border-radius:14px;padding:18px;text-align:center;min-height:130px}
+.box h4{margin:0 0 8px;font:600 12px system-ui,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--mut)}
+.word{font-size:clamp(26px,5.5vw,44px);font-weight:700;min-height:56px;word-break:break-word}
+.word i{font-style:normal;display:inline-block;animation:pop .5s both}
+.word i.s{color:var(--hl)}
+@keyframes pop{from{opacity:0;transform:translateY(-14px) scale(.7)}to{opacity:1;transform:none}}
+.mean,.note{font:15px/1.6 system-ui,sans-serif;color:var(--mut)}
+.note{margin:6px 0 0}
+table{width:100%;border-collapse:collapse;font:15px system-ui,sans-serif}
+td,th{padding:9px 10px;border-bottom:1px solid var(--bd);text-align:left}
+th{color:var(--mut);font-weight:600;font-size:12px;letter-spacing:.12em;text-transform:uppercase}
+td b{color:var(--a)} td em{font-style:normal;color:var(--b);font-weight:700}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px;margin-top:14px}
+.card:hover{border-color:var(--b)}
+.warn{border-left:4px solid var(--hl);padding:4px 16px;color:var(--mut)}
+.mg{font:italic 15px Georgia,serif;color:var(--hl);transform:rotate(-1.5deg);display:inline-block;margin:4px 0}
+.q{font-size:28px;font-weight:700;text-align:center;margin:6px 0 2px}
+.opt.ok{background:var(--b);color:#04251c;border-color:var(--b)}
+.opt.no{background:var(--hl);color:#fff;border-color:var(--hl)}
+.chain{font-size:clamp(24px,6vw,42px);font-weight:700;text-align:center;margin:10px 0;word-break:break-word}
+footer{text-align:center;color:var(--mut);margin-top:70px;font:14px system-ui,sans-serif}
+#cv{position:fixed;inset:0;z-index:-1;pointer-events:none;width:100%;height:100%}
+#dots{position:fixed;right:12px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:11px;z-index:8}
+#dots a{width:10px;height:10px;border-radius:50%;background:var(--bd);cursor:pointer;display:block;transition:.25s}
+#dots a:hover,#dots a.on{background:var(--hl);transform:scale(1.5)}
+@media(max-width:760px){#dots{display:none}}
+.stat{text-align:center}.stat b{font-size:44px;display:block;color:var(--a);line-height:1.1}.stat span{font:13px system-ui,sans-serif;color:var(--mut)}
+.sp{padding:4px 11px;margin-top:8px;font-size:14px}
+.bt{position:fixed;z-index:10;pointer-events:none;font-size:22px}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<div class="aur"><i></i><i></i><i></i></div>
+<canvas id="cv"></canvas>
+<div id="dots"></div>
+<div id="bar"></div>
+<button id="tg" title="Tema">◐</button>
+<div class="w">
+<header>
+<small>Dil yolculuğu</small>
+<h1 id="h1">İki uzak akraba:<br><span>Fince &amp; Türkçe</span></h1>
+<p class="sub cur" id="sub"></p>
+<p class="mg">(başlığa bas, bir sürpriz var)</p>
+<div class="grid" style="margin-top:34px">
+<div class="card stat"><b data-n="6">0</b><span>Türkçede hâl (ev, evi, eve, evde, evden, evin)</span></div>
+<div class="card stat"><b data-n="15">0</b><span>Fincede geleneksel olarak sayılan hâl</span></div>
+<div class="card stat"><b data-n="0">0</b><span>artikel: ikisinde de “the” yok</span></div>
+<div class="card stat"><b data-n="0">0</b><span>dilbilgisel cinsiyet: ikisinde de yok</span></div>
+</div>
+</header>
+
+<div class="rv">
+<p>Kuzeyde göller, çam ormanları ve kış boyunca gelmeyen güneş: Finlandiya. Güneyde Anadolu. Aralarında yaklaşık üç bin kilometre var ve dilleri aynı aileden değil. Fince Ural ailesinden, Türkçe Türk dillerinden. Ama bir Türk Fince bir cümle duyduğunda içinde bir şey “tanıdık” der; çünkü ikisi de <b>eklemeli</b> bir dil. Yani kelimeyi uzun uzun, Lego gibi, sondan ekleyerek kurarlar.</p>
+<p>Türkçede <i>ev</i>, ek ek büyüyüp <i>evlerimizden</i> olur. Fincede <i>talo</i> da büyüyüp <i>taloistamme</i> olur. İkisi de aynı cümleyi tek kelimeye sığdırır: “evlerimizden”.</p>
+</div>
+
+<h2 class="rv"><small>Bölüm 1</small>Kelime atölyesi</h2>
+<p class="rv">Bir ek seç, bir örneğe bas ve kelimenin iki dilde nasıl kurulduğunu izle. Turuncu kısım eklenen parça.</p>
+<div class="card rv">
+<div class="row" id="tabs"></div>
+<p class="note" id="desc"></p>
+<div class="row ex" id="ex"></div>
+<div class="stage">
+<div class="box"><h4>Türkçe</h4><div class="word" id="tr"></div><div class="mean" id="trm"></div><button class="sp" data-t="tr">🔊 dinle</button></div>
+<div class="box"><h4>Fince</h4><div class="word" id="fi"></div><div class="mean" id="fim"></div><button class="sp" data-t="fi">🔊 dinle (Fince)</button></div>
+</div>
+</div>
+
+<h2 class="rv"><small>Bölüm 2</small>Ek zinciri: en uzun kelime avı</h2>
+<p class="rv">Düğmelere bas, kelimenin üstüne ek ekle. Fincenin zincirine dikkat et: parçaların sırası ve hatta biçimi değişiyor ama mantık aynı.</p>
+<div class="card rv">
+<div class="row" id="ch">
+<button data-k="1">+ çoğul</button><button data-k="2">+ bizim</button><button data-k="4">+ -den</button>
+</div>
+<div class="stage">
+<div class="box"><h4>Türkçe</h4><div class="chain" id="ctr">ev</div></div>
+<div class="box"><h4>Fince</h4><div class="chain" id="cfi">talo</div></div>
+</div>
+<p class="note" id="cm" style="text-align:center">ev / talo = ev</p>
+</div>
+
+<h2 class="rv"><small>Bölüm 3</small>Uyum makinesi</h2>
+<p class="rv">İkisinde de ek, kelimenin ünlüsüne uyum sağlar. Bir kelime yaz, “-de” ekinin ne olacağını makine bulsun.</p>
+<div class="card rv">
+<div class="stage">
+<div class="box"><h4>Türkçe: -de / -da / -te / -ta</h4><input id="ti" value="okul" aria-label="Türkçe kelime"><div class="word" id="to"></div></div>
+<div class="box"><h4>Fince: -ssa / -ssä</h4><input id="fiI" value="kylä" aria-label="Fince kelime"><div class="word" id="fo"></div></div>
+</div>
+<p class="note">Not: Fincede kök değişimleri (ör. <i>koti</i> → <i>kodissa</i>) hesaba katılmıyor, makine sadece ünlü uyumuna bakıyor.</p>
+</div>
+
+<h2 class="rv"><small>Bölüm 4</small>Fince bilmeden Fince tahmin et</h2>
+<div class="card rv">
+<p class="note" id="qs">Skor: 0</p>
+<div class="q" id="qw"></div>
+<p class="note" style="text-align:center">Ek ipucu: çoğunu çözebilirsin.</p>
+<div class="row" id="qo" style="justify-content:center"></div>
+</div>
+
+<h2 class="rv"><small>Bölüm 5</small>Ünlü uyumu tablosu</h2>
+<div class="card rv"><table>
+<tr><th>Anlam</th><th>Türkçe</th><th>Fince</th></tr>
+<tr><td>evde</td><td>ev<b>de</b></td><td>talo<em>ssa</em></td></tr>
+<tr><td>okulda</td><td>okul<b>da</b></td><td>koulu<em>ssa</em></td></tr>
+<tr><td>köyde</td><td>köy<b>de</b></td><td>kylä<em>ssä</em></td></tr>
+<tr><td>evden</td><td>ev<b>den</b></td><td>talo<em>sta</em></td></tr>
+<tr><td>evler</td><td>ev<b>ler</b></td><td>talo<em>t</em></td></tr>
+</table></div>
+
+<h2 class="rv"><small>Bölüm 6</small>Garip ve güzel benzerlikler</h2>
+<div class="grid">
+<div class="card rv"><b>Ben ≈ minä, sen ≈ sinä</b><p class="note">benim = minun, senin = sinun. “b” ile “m” arasındaki yakınlık dilbilimcilerin hep dikkatini çekmiştir.</p></div>
+<div class="card rv"><b>“Sahip olmak” fiili yok</b><p class="note">Türkçe: <i>Bende kitap var</i>. Fince: <i>Minulla on kirja</i>, yani “bende kitap var”. İkisi de “sahibim” demez, “bende var” der.</p></div>
+<div class="card rv"><b>Cinsiyet yok, “the” yok</b><p class="note">Türkçe <i>o</i>, Fince <i>hän</i>: ikisi de “he/she” ayrımı yapmaz. İkisinde de artikel de yoktur.</p></div>
+<div class="card rv"><b>Soru eki</b><p class="note">Türkçe <i>gelir misin?</i> Fince <i>Tuletko?</i> Soru, kelimenin ucuna eklenen küçük bir parçacıkla kurulur.</p></div>
+<div class="card rv"><b>Eşsesli tesadüfler</b><p class="note">Fince <i>sana</i> = kelime, Türkçe <i>sana</i> = senin için. Fince <i>kana</i> = tavuk, Türkçe <i>kana</i> = kana doğru. Tesadüf ama kafa karıştırıcı.</p></div>
+<div class="card rv"><b>Hamam ≈ sauna</b><p class="note">İki kültürde de buharlı banyo, günlük hayatın bir parçası ve sohbet yeri. Dil akrabası değiller ama alışkanlık akrabası.</p></div>
+<div class="card rv"><b>Sisu</b><p class="note">Fincede <i>sisu</i>, zor işte pes etmemek, inatla dayanmak demek. Türkçede en yakın kelime belki <i>azim</i> ya da <i>dirayet</i>, ama hiçbiri tam karşılamıyor.</p></div>
+<div class="card rv"><b>Nezaket cümleleri</b><p class="note"><i>Kiitos</i> = teşekkürler, <i>Moi</i> = selam, <i>Hyvää huomenta</i> = günaydın, <i>Anteeksi</i> = pardon. Okunuşu yazılışı gibi: Fincede harfler hep aynı sesi verir, Türkçedeki gibi.</p></div>
+</div>
+
+<h2 class="rv"><small>Bölüm 7</small>Peki akraba mı?</h2>
+<div class="warn rv"><p>Bir zamanlar bazı araştırmacılar Fince ve Türkçeyi “Ural-Altay” adlı tek bir aileye koymuştu. Bugün bu görüş çoğu dilbilimci tarafından kabul edilmiyor. Benzerlikler büyük ölçüde yapısal (tipolojik): iki dil de ekleri arka arkaya dizerek kelime kuruyor. Ortak kelime sayısı çok az ve çoğu tesadüf.</p></div>
+<p class="rv">Yine de fark etmesi güzel: farklı iklimlerde, farklı tarihlerde, birbirinden habersiz insanlar anlamı aynı zarif yöntemle kurmuş. Bir kökün ucuna ek yapıştırmak, hem Anadolu’da hem Laponya’da yeni bir dünya açıyor.</p>
+<footer><p>Fince ve Türkçe: iki dil, bir fikir. ✦</p><button id="sh">Arkadaşına gönder</button></footer>
+</div>
+
+<script>
+const $=id=>document.getElementById(id);
+/* tema, ilerleme, belirme */
+$("tg").onclick=()=>{const r=document.documentElement,d=r.dataset.theme==="dark"||(!r.dataset.theme&&matchMedia("(prefers-color-scheme:dark)").matches);r.dataset.theme=d?"light":"dark"};
+addEventListener("scroll",()=>{$("bar").style.width=(scrollY/(document.body.scrollHeight-innerHeight)*100)+"%"});
+const io=new IntersectionObserver(e=>e.forEach(x=>x.isIntersecting&&x.target.classList.add("in")),{threshold:.12});
+document.querySelectorAll(".rv").forEach(e=>io.observe(e));
+/* yazı makinesi */
+const lines=["Aynı fikir, iki ayrı dil.","Kök + ek + ek + ek = bir cümle.","Ev → evlerimizden. Talo → taloistamme.","Bir kelimeye bir dünya sığar."];
+let li=0,ci=0,del=false;
+(function ty(){const t=lines[li];$("sub").textContent=t.slice(0,ci);
+if(!del&&ci===t.length){del=true;return setTimeout(ty,1700)}
+if(del&&ci===0){del=false;li=(li+1)%lines.length}
+ci+=del?-1:1;setTimeout(ty,del?25:55)})();
+/* başlık sürprizi */
+const sur=["Moi!","Kiitos!","Hoş geldin!","Tervetuloa!","Sisu! 💪"];let si=0;
+$("h1").onclick=()=>{const m=document.createElement("div");m.textContent=sur[si++%sur.length];m.style.cssText="position:fixed;left:50%;top:40%;transform:translate(-50%,0);font:700 48px Georgia;color:var(--hl);z-index:9;pointer-events:none;transition:1.2s";document.body.appendChild(m);requestAnimationFrame(()=>{m.style.transform="translate(-50%,-90px)";m.style.opacity=0});setTimeout(()=>m.remove(),1300)};
+/* atölye */
+const D=[
+{k:"-lik / -sto",d:"Yer, kap ya da toplanma anlamı katan ek: kalem → kalemlik. Fincede -sto/-la benzer işi görür.",e:[["kalem","lik","kalemlik","kalem koymak için kap",["kynä","teline"],"kynäteline (birleşik kelime)"],["kitap","lık","kitaplık","kitapların durduğu yer",["kirja","sto"],"kirjasto = kütüphane"],["tuz","luk","tuzluk","tuz kabı",["kahvi","la"],"kahvila = kafe (yer eki -la)"]]},
+{k:"-siz / -ton",d:"“Olmayan” anlamı. Türkçe -siz, Fince -ton/-tön.",e:[["iş","siz","işsiz","işi olmayan",["työ","tön"],"työtön = işsiz"],["ev","siz","evsiz","evi olmayan",["kodi","ton"],"koditon = evsiz"],["su","suz","susuz","suyu olmayan",["vede","tön"],"vedetön = susuz"]]},
+{k:"-ci / -ja",d:"Yapanı ya da mesleği bildiren ek. Türkçe -cı/-ci, Fince -ja/-jä.",e:[["balık","çı","balıkçı","balık tutan",["kalasta","ja"],"kalastaja = balıkçı"],["öğret","men","öğretmen","öğreten kişi",["opetta","ja"],"opettaja = öğretmen"]]},
+{k:"-li / -inen",d:"“Sahip olan” anlamı: Türkçe -lı/-li, Fince -inen/-llinen.",e:[["tuz","lu","tuzlu","tuzu olan",["suola","inen"],"suolainen = tuzlu"],["şans","lı","şanslı","şansı olan",["onni","llinen"],"onnellinen = mutlu, şanslı"]]},
+{k:"Aitlik",d:"Sahibi kelimenin sonuna ekleriz: evim, evin. Fincede de aynı.",e:[["ev","im","evim","benim evim",["talo","ni"],"taloni = evim"],["ev","in","evin","senin evin",["talo","si"],"talosi = evin"],["kitab","ım","kitabım","benim kitabım",["kirja","ni"],"kirjani = kitabım"]]},
+{k:"Durum ekleri",d:"“-de, -den” gibi ekler. Fincede -ssa, -sta gibi eklerle yapılır.",e:[["ev","de","evde","içeride",["talo","ssa"],"talossa = evde"],["ev","den","evden","içeriden",["talo","sta"],"talosta = evden"],["okul","da","okulda","okulun içinde",["koulu","ssa"],"koulussa = okulda"]]},
+{k:"Soru eki",d:"Türkçede “mi”, Fincede “-ko/-kö”.",e:[["geliyor"," musun","geliyor musun","gelir misin?",["tule","tko"],"Tuletko? = gelir misin?"]]}
+];
+const T=$("tabs"),X=$("ex");
+function wd(el,a,b){el.innerHTML="";let n=0;[a,b].forEach((p,i)=>[...p].forEach(c=>{const s=document.createElement("i");s.textContent=c===" "?"\u00a0":c;if(i)s.className="s";s.style.animationDelay=(n++*.07)+"s";el.appendChild(s)}))}
+function pick(i){[...T.children].forEach((b,j)=>b.classList.toggle("on",i===j));const g=D[i];$("desc").textContent=g.d;X.innerHTML="";
+g.e.forEach(e=>{const b=document.createElement("button");b.textContent=e[0]+" + "+e[1].trim();b.onclick=()=>{[...X.children].forEach(c=>c.classList.remove("on"));b.classList.add("on");wd($("tr"),e[0],e[1]);$("trm").textContent=e[2]+" · "+e[3];wd($("fi"),e[4][0],e[4][1]);$("fim").textContent=e[5]};X.appendChild(b)});X.firstChild.click()}
+D.forEach((g,i)=>{const b=document.createElement("button");b.textContent=g.k;b.onclick=()=>pick(i);T.appendChild(b)});pick(0);
+/* ek zinciri */
+const FI={0:"talo",1:"talot",2:"talomme",3:"talomme",4:"talosta",5:"taloista",6:"talostamme",7:"taloistamme"};
+let st=0;
+document.querySelectorAll("#ch button").forEach(b=>b.onclick=()=>{st^=+b.dataset.k;b.classList.toggle("on");
+const tr="ev"+(st&1?"ler":"")+(st&2?"imiz":"")+(st&4?"den":"");
+$("ctr").textContent=tr;$("cfi").textContent=FI[st];
+$("cm").textContent=st===7?"evlerimizden = taloistamme = “bizim evlerimizden”. Bir kelime, bir cümlelik anlam.":tr+" / "+FI[st]});
+/* uyum makinesi */
+function trL(w){w=w.toLocaleLowerCase("tr").trim();const v=[...w].filter(c=>"aıoueiöü".includes(c));if(!w||!v.length)return"";const back="aıou".includes(v[v.length-1]);const vl="çfhkpsşt".includes(w[w.length-1]);return w+"<span class=s></span>"+(vl?"t":"d")+(back?"a":"e")}
+function fiL(w){w=w.toLowerCase().trim();const v=[...w].filter(c=>"aouäöy".includes(c));if(!w)return"";const back=!v.length||"aou".includes(v[v.length-1]);return w+"<span class=s></span>ss"+(back?"a":"ä")}
+function hm(){const a=trL($("ti").value),b=fiL($("fiI").value);$("to").innerHTML=a.replace("<span class=s></span>","<span style='color:var(--hl)'>")+"</span>";$("fo").innerHTML=b.replace("<span class=s></span>","<span style='color:var(--hl)'>")+"</span>"}
+$("ti").oninput=$("fiI").oninput=hm;hm();
+/* quiz */
+const Q=[["työtön","işsiz"],["kirjasto","kütüphane"],["kalastaja","balıkçı"],["koditon","evsiz"],["vedetön","susuz"],["suolainen","tuzlu"],["opettaja","öğretmen"],["onnellinen","mutlu, şanslı"]];
+let qi=0,sc=0;
+function nq(){if(qi>=Q.length){$("qw").textContent="Bitti! "+sc+"/"+Q.length;$("qo").innerHTML="";const r=document.createElement("button");r.textContent="Tekrar oyna";r.onclick=()=>{qi=0;sc=0;Q.sort(()=>Math.random()-.5);nq()};$("qo").appendChild(r);return}
+const c=Q[qi][1];const o=[c,...Q.filter(x=>x[1]!==c).sort(()=>Math.random()-.5).slice(0,2).map(x=>x[1])].sort(()=>Math.random()-.5);
+$("qw").textContent=Q[qi][0];$("qo").innerHTML="";$("qs").textContent="Skor: "+sc+" · Soru "+(qi+1)+"/"+Q.length;
+o.forEach(t=>{const b=document.createElement("button");b.className="opt";b.textContent=t;b.onclick=()=>{[...$("qo").children].forEach(x=>{x.disabled=true;if(x.textContent===c)x.classList.add("ok")});if(t===c){sc++;burst(b)}else b.classList.add("no");qi++;setTimeout(nq,1100)};$("qo").appendChild(b)})}
+Q.sort(()=>Math.random()-.5);nq();
+/* sesli okuma */
+function say(t,l){if(!window.speechSynthesis)return;const u=new SpeechSynthesisUtterance(t.replace(/\u00a0/g," "));u.lang=l;speechSynthesis.cancel();speechSynthesis.speak(u)}
+document.querySelectorAll(".sp").forEach(b=>b.onclick=()=>say($(b.dataset.t).textContent,b.dataset.t==="tr"?"tr-TR":"fi-FI"));
+/* konfeti */
+function burst(el){const r=el.getBoundingClientRect(),em=["✦","❄","✨","🇫🇮","🌟"];for(let i=0;i<10;i++){const s=document.createElement("span");s.className="bt";s.textContent=em[i%5];s.style.left=(r.left+r.width/2)+"px";s.style.top=(r.top+r.height/2)+"px";document.body.appendChild(s);const a=Math.random()*6.28,d=50+Math.random()*70;s.animate([{transform:"translate(0,0)",opacity:1},{transform:"translate("+Math.cos(a)*d+"px,"+(Math.sin(a)*d-40)+"px)",opacity:0}],{duration:900,easing:"ease-out"}).onfinish=()=>s.remove()}}
+/* sayaçlar */
+const so=new IntersectionObserver(es=>es.forEach(x=>{if(!x.isIntersecting)return;so.unobserve(x.target);const e=x.target,n=+e.dataset.n;let k=0;const t=setInterval(()=>{e.textContent=Math.min(++k,n);if(k>=n)clearInterval(t)},90)}),{threshold:.5});
+document.querySelectorAll(".stat b").forEach(b=>so.observe(b));
+/* yan noktalar */
+const hs=[...document.querySelectorAll("h2")];
+hs.forEach((h,i)=>{const a=document.createElement("a");a.title=h.textContent.replace(/^Bölüm \d+/,"");a.onclick=()=>h.scrollIntoView({behavior:"smooth"});$("dots").appendChild(a)});
+addEventListener("scroll",()=>{let c=-1;hs.forEach((h,i)=>{if(h.getBoundingClientRect().top<innerHeight*.5)c=i});[...$("dots").children].forEach((a,i)=>a.classList.toggle("on",i===c))});
+/* süzülen ekler */
+(function(){if(matchMedia("(prefers-reduced-motion:reduce)").matches)return;const cv=$("cv"),x=cv.getContext("2d"),W=["-lik","-siz","-ton","-ssa","-ssä","-de","-da","-ci","-ja","-ko","-mi","-nen","-lı","-sta"];let w,h,P=[],col="#888",f=0;
+function rs(){w=cv.width=innerWidth;h=cv.height=innerHeight}rs();addEventListener("resize",rs);
+for(let i=0;i<24;i++)P.push({t:W[i%W.length],x:Math.random()*w,y:Math.random()*h,v:.15+Math.random()*.35,s:16+Math.random()*22,a:.08+Math.random()*.16});
+(function d(){if(!(f++%90))col=getComputedStyle(document.documentElement).getPropertyValue("--mut")||col;x.clearRect(0,0,w,h);x.fillStyle=col.trim();P.forEach(p=>{p.y-=p.v;if(p.y<-40){p.y=h+40;p.x=Math.random()*w}x.globalAlpha=p.a;x.font="italic "+p.s+"px Georgia";x.fillText(p.t,p.x,p.y)});requestAnimationFrame(d)})()})();
+/* paylaş */
+$("sh").onclick=()=>{if(navigator.share)navigator.share({title:document.title,url:location.href}).catch(()=>{});else if(navigator.clipboard)navigator.clipboard.writeText(location.href).then(()=>{$("sh").textContent="Bağlantı kopyalandı ✓"}).catch(()=>{})};
+</script>
+</body>
+</html>
